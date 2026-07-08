@@ -44,3 +44,5 @@ set_env.sh
 .angular/
 dist/
 .angular/
+/k8s/env-secret.yaml
+/k8s/aws-secret.yaml
