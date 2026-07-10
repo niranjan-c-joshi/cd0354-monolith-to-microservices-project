@@ -18,14 +18,12 @@ spec:
     spec:
       containers:
       - name: backend-user
-
         image: niranjancjoshi/udagram-api-user
-        
+
         resources:
           requests:
             cpu: "100m"
             memory: "128Mi"
-
           limits:
             cpu: "500m"
             memory: "512Mi"
@@ -33,9 +31,15 @@ spec:
         ports:
         - containerPort: 8080
 
+        env:
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: env-secret
+              key: JWT_SECRET
+
         envFrom:
         - configMapRef:
             name: env-config
-
         - secretRef:
             name: env-secret
